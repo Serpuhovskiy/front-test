@@ -53,10 +53,10 @@ function App() {
 
   async function getPosts(id, name) {
     setPosts();
+    setActiveUser(name);
     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
     console.log('posts ', res);
     setPosts(res.data.splice(0, 3));
-    setActiveUser(name);
   }
 
   useEffect(() => {
