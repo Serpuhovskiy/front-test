@@ -44,18 +44,13 @@ function App() {
   };
 
   async function getData() {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-    console.log(res.data[0].name);
-    setUsers(res.data);
-    setActiveUser(res.data[0].name);
-    getPosts(res.data[0].id, res.data[0].name);
+    const res = await axios.get('https://my-json-server.typicode.com/falk20/demo/todos');
   }
 
   async function getPosts(id, name) {
     setPosts();
     setActiveUser(name);
     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
-    console.log('posts ', res);
     setPosts(res.data.splice(0, 3));
   }
 
